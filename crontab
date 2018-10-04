@@ -1,1 +1,1 @@
-* * * * * root /usr/bin/execute bash /rsync_tmbackup.sh /backupSrc /backupDst
+* * * * * /usr/bin/execute bash /rsync_tmbackup.sh /backupSrc /backupDst
