@@ -68,6 +68,25 @@ On macOS, it has a few disadvantages compared to Time Machine - in particular it
 
 		0 */1 * * * if [[ -d /mnt/backup ]]; then rsync_tmbackup.sh /home /mnt/backup; fi
 
+## Usage Docker
+
+You can use a docker image with an installed cron daemon. 
+
+Just run
+
+~~~BASH
+
+docker run -d -v /backupScriptPath:/backup.sh -v /backupSrcFolder:/backupSrc -v /backupDstFolder:/backupDst  denbicloud/rsync-time-backup:latest
+
+where:
+
+ * `backupSrcFolder` is a folder with data you want to backup.
+
+ * `backupDstFolder` is the destination folder (for example on an external hard drive) you want to save the data to.
+
+ * `backupScriptPath` is a backup script that runs the actual backup command. See backup_example.sh for an example.
+~~~
+
 ## Backup expiration logic
 
 Backup sets are automatically deleted following a simple expiration strategy defined with the `--strategy` flag. This strategy is a series of time intervals with each item being defined as `x:y`, which means "after x days, keep one backup every y days". The default strategy is `1:1 30:7 365:30`, which means:
