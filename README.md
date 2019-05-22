@@ -76,7 +76,7 @@ Just run
 
 ~~~BASH
 
-docker run -d -v /backupScriptPath:/backup.sh -v /backupSrcFolder:/backupSrc -v /backupDstFolder:/backupDst  denbicloud/rsync-time-backup:latest
+docker run -d -v /backupScriptPath:/run.sh -v /backupSrcFolder:/backupSrc -v /backupDstFolder:/backupDst  denbicloud/rsync-time-backup:latest
 
 where:
 
